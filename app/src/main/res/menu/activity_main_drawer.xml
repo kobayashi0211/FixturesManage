@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_fixture"
+            android:icon="?android:attr/listChoiceIndicatorSingle"
+            android:title="@string/menu_fixture" />
+        <item
+            android:id="@+id/nav_type"
+            android:icon="?android:attr/listChoiceIndicatorSingle"
+            android:title="@string/menu_type" />
+        <item
+            android:id="@+id/nav_status"
+            android:icon="?android:attr/listChoiceIndicatorSingle"
+            android:title="@string/menu_status" />
+        <item
+            android:id="@+id/nav_unit"
+            android:icon="?android:attr/listChoiceIndicatorSingle"
+            android:title="@string/menu_unit" />
+    </group>
+</menu>

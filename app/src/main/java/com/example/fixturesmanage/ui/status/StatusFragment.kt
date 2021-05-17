@@ -1,0 +1,47 @@
+package com.example.fixturesmanage.ui.status
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.room.Room
+import com.example.fixturesmanage.R
+import com.example.fixturesmanage.model.Status
+import com.example.fixturesmanage.dao.StatusDao
+import com.example.fixturesmanage.database.StatusDatabase
+import com.example.fixturesmanage.databinding.FragmentStatusBinding
+
+class StatusFragment : Fragment() {
+
+    lateinit var mStatusDao: StatusDao
+
+    private lateinit var statusViewModel: StatusViewModel
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        val binding = DataBindingUtil.inflate<FragmentStatusBinding>(inflater, R.layout.fragment_status, container, false)
+
+        binding.createStatus.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_nav_status_to_statusCreateFragment)
+        }
+        setHasOptionsMenu(true)
+        return binding.root
+//        statusViewModel =
+//                ViewModelProvider(this).get(StatusViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_status, container, false)
+//        val textView: TextView = root.findViewById(R.id.text_status)
+//        statusViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//        return root
+    }
+}
