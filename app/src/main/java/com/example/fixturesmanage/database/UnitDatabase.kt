@@ -23,7 +23,7 @@ abstract class UnitDatabase : RoomDatabase() {
             synchronized(lock) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        UnitDatabase::class.java, "fixtures_manage.db")
+                        UnitDatabase::class.java, "fixtures_manage_units.db")
                         .allowMainThreadQueries()
                         .build()
                 }

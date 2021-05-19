@@ -23,7 +23,7 @@ abstract class TypeDatabase : RoomDatabase() {
             synchronized(lock) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        TypeDatabase::class.java, "fixtures_manage.db")
+                        TypeDatabase::class.java, "fixtures_manage_types.db")
                         .allowMainThreadQueries()
                         .build()
                 }
