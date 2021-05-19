@@ -8,14 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.fixturesmanage.R
-import com.example.fixturesmanage.dao.UnitDao
 import com.example.fixturesmanage.databinding.FragmentUnitBinding
 
 class UnitFragment : Fragment() {
-
-    lateinit var mUnitDao: UnitDao
-
-    private lateinit var unitViewModel: UnitViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -29,13 +24,5 @@ class UnitFragment : Fragment() {
         }
         setHasOptionsMenu(true)
         return binding.root
-//        unitViewModel =
-//                ViewModelProvider(this).get(UnitViewModel::class.java)
-//        val root = inflater.inflate(R.layout.fragment_unit, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_unit)
-//        unitViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-//        return root
     }
 }
