@@ -20,4 +20,9 @@
     <string name="unit_name">単位名</string>
     <string name="type_name">種別名</string>
     <string name="status_name">状態名</string>
+    <string name="fixture_name">備品名</string>
+    <string name="fixture_type">備品 種別</string>
+    <string name="fixture_status">備品 状態</string>
+    <string name="fixture_quantity">備品 個数</string>
+    <string name="fixture_unit">備品 単位</string>
 </resources>

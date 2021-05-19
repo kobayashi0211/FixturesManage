@@ -9,7 +9,11 @@
         android:id="@+id/nav_fixture"
         android:name="com.example.fixturesmanage.ui.fixture.FixtureFragment"
         android:label="@string/menu_fixture"
-        tools:layout="@layout/fragment_fixture" />
+        tools:layout="@layout/fragment_fixture" >
+        <action
+            android:id="@+id/action_nav_fixture_to_fixtureCreateFragment"
+            app:destination="@id/fixtureCreateFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_type"
@@ -67,5 +71,14 @@
         <action
             android:id="@+id/action_statusCreateFragment_to_nav_status"
             app:destination="@id/nav_status" />
+    </fragment>
+    <fragment
+        android:id="@+id/fixtureCreateFragment"
+        android:name="com.example.fixturesmanage.ui.fixture.FixtureCreateFragment"
+        android:label="@string/create_fixture"
+        tools:layout="@layout/create_fixture_fragment">
+        <action
+            android:id="@+id/action_fixtureCreateFragment_to_nav_fixture"
+            app:destination="@id/nav_fixture" />
     </fragment>
 </navigation>

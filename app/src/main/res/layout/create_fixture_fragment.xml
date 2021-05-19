@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.navigation.CreateFixtureFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/nav_header_height"
+            android:paddingBottom="@dimen/nav_header_height">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_name"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editTextName"
+                    android:text="@string/fixture_name"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_type"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editSpinnerType"
+                    android:text="@string/fixture_type"
+                    android:textAlignment="center" />
+
+                <Spinner
+                    android:id="@+id/editSpinnerType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_status"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editSpinnerStatus"
+                    android:text="@string/fixture_status"
+                    android:textAlignment="center" />
+
+                <Spinner
+                    android:id="@+id/editSpinnerStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_quantity"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editTextName"
+                    android:text="@string/fixture_quantity"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/editTextQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_unit"
+                    android:layout_width="81dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@id/editSpinnerUnit"
+                    android:text="@string/fixture_unit"
+                    android:textAlignment="center" />
+
+                <Spinner
+                    android:id="@+id/editSpinnerUnit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/createFixtureButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/create" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>
