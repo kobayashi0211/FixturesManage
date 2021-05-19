@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.fixturesmanage.R
 import com.example.fixturesmanage.dao.StatusDao
-import com.example.fixturesmanage.database.StatusDatabase
+import com.example.fixturesmanage.database.FixturesManageDatabase
 import com.example.fixturesmanage.databinding.CreateStatusFragmentBinding
 import com.example.fixturesmanage.model.Status
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +29,7 @@ class StatusCreateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mStatusDao = StatusDatabase.getInstance(this.requireContext()).statusDao()
+        mStatusDao = FixturesManageDatabase.getInstance(this.requireContext()).statusDao()
         val binding = DataBindingUtil.inflate<CreateStatusFragmentBinding>(inflater, R.layout.create_status_fragment, container, false)
 
         binding.createStatusButton.setOnClickListener { view : View ->

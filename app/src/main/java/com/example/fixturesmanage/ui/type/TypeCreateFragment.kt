@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.fixturesmanage.R
 import com.example.fixturesmanage.dao.TypeDao
-import com.example.fixturesmanage.database.TypeDatabase
+import com.example.fixturesmanage.database.FixturesManageDatabase
 import com.example.fixturesmanage.databinding.CreateTypeFragmentBinding
 import com.example.fixturesmanage.model.Type
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +29,7 @@ class TypeCreateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mTypeDao = TypeDatabase.getInstance(this.requireContext()).typeDao()
+        mTypeDao = FixturesManageDatabase.getInstance(this.requireContext()).typeDao()
         val binding = DataBindingUtil.inflate<CreateTypeFragmentBinding>(inflater, R.layout.create_type_fragment, container, false)
 
         binding.createTypeButton.setOnClickListener { view : View ->

@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.fixturesmanage.R
 import com.example.fixturesmanage.dao.UnitDao
-import com.example.fixturesmanage.database.UnitDatabase
+import com.example.fixturesmanage.database.FixturesManageDatabase
 import com.example.fixturesmanage.databinding.CreateUnitFragmentBinding
 import com.example.fixturesmanage.model.Unit
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +29,7 @@ class UnitCreateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mUnitDao = UnitDatabase.getInstance(this.requireContext()).unitDao()
+        mUnitDao = FixturesManageDatabase.getInstance(this.requireContext()).unitDao()
         val binding = DataBindingUtil.inflate<CreateUnitFragmentBinding>(inflater, R.layout.create_unit_fragment, container, false)
 
         binding.createUnitButton.setOnClickListener { view : View ->
