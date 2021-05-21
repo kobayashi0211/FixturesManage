@@ -42,10 +42,6 @@ class UnitFragment : Fragment() {
         listView.setOnItemClickListener {parent, view, position, id ->
             // listViewのクリックされた行のテキストを取得
             val id = view.findViewById<TextView>(R.id.textViewId).text
-            val name = view.findViewById<TextView>(R.id.textViewName).text
-            // トーストで表示する
-            Toast.makeText(requireContext(), "${id}: $name", Toast.LENGTH_LONG).show()
-
             // 生成されたクラスに引数を渡して遷移
             val action = UnitFragmentDirections.actionNavUnitToUnitShowFragment(id.toString().toInt())
             view.findNavController().navigate(action)
