@@ -17,6 +17,18 @@
     <string name="create_type">種別 登録</string>
     <string name="create_status">状態 登録</string>
     <string name="create_fixture">備品 登録</string>
+    <string name="show">登録</string>
+    <string name="show_unit">単位 詳細</string>
+    <string name="show_type">種別 詳細</string>
+    <string name="show_status">状態 詳細</string>
+    <string name="show_fixture">備品 詳細</string>
+    <string name="edit">編集</string>
+    <string name="edit_unit">単位 編集</string>
+    <string name="edit_type">種別 編集</string>
+    <string name="edit_status">状態 編集</string>
+    <string name="edit_fixture">備品 編集</string>
+    <string name="delete">削除</string>
+
     <string name="unit_name">単位名</string>
     <string name="type_name">種別名</string>
     <string name="status_name">状態名</string>
