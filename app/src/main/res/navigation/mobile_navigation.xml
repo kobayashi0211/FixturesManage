@@ -43,6 +43,10 @@
         <action
             android:id="@+id/action_nav_unit_to_unitCreateFragment"
             app:destination="@id/unitCreateFragment" />
+        <action
+            android:id="@+id/action_nav_unit_to_unitShowFragment"
+            app:destination="@id/unitShowFragment">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/unitCreateFragment"
@@ -80,5 +84,19 @@
         <action
             android:id="@+id/action_fixtureCreateFragment_to_nav_fixture"
             app:destination="@id/nav_fixture" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/unitShowFragment"
+        android:name="com.example.fixturesmanage.ui.unit.UnitShowFragment"
+        android:label="@string/show_unit"
+        tools:layout="@layout/show_unit_fragment" >
+        <argument
+            android:name="selectedId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_unitShowFragment_to_nav_unit"
+            app:destination="@id/nav_unit" />
     </fragment>
 </navigation>
