@@ -10,16 +10,16 @@ interface StatusDao {
     fun getAll(): List<Status>
 
     @Insert
-    fun insert(unit: Status)
+    fun insert(status: Status)
 
     @Update
-    fun update(unit: Status)
+    fun update(status: Status)
 
     @Delete
-    fun delete(unit: Status)
+    fun delete(status: Status)
 
     @Query("SELECT * FROM statuses WHERE id = :id LIMIT 1")
-    fun findUnit(id: Int): Status
+    fun findStatus(id: Int): Status
 
     @Query("SELECT * FROM statuses WHERE name = :name")
     fun searchName(name: String): List<Status>
