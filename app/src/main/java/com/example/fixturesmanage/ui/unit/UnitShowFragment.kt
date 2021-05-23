@@ -13,6 +13,7 @@ import com.example.fixturesmanage.R
 import com.example.fixturesmanage.dao.UnitDao
 import com.example.fixturesmanage.database.FixturesManageDatabase
 import com.example.fixturesmanage.databinding.ShowUnitFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 
 class UnitShowFragment : Fragment() {
 
@@ -37,6 +38,7 @@ class UnitShowFragment : Fragment() {
                 .setMessage("${unit.name} を削除しますか？")
                 .setPositiveButton("OK") { dialog, which ->
                     mUnitDao.delete(unit)
+                    Snackbar.make(view, "${unit.name} を削除しました", Snackbar.LENGTH_SHORT).show();
                     view.findNavController().navigate(R.id.action_unitShowFragment_to_nav_unit)
                 }
                 .setNegativeButton("No") { dialog, which -> /* 何もしない */ }
