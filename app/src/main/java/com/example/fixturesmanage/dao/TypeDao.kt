@@ -9,16 +9,16 @@ interface TypeDao {
     fun getAll(): List<Type>
 
     @Insert
-    fun insert(unit: Type)
+    fun insert(type: Type)
 
     @Update
-    fun update(unit: Type)
+    fun update(type: Type)
 
     @Delete
-    fun delete(unit: Type)
+    fun delete(type: Type)
 
     @Query("SELECT * FROM types WHERE id = :id LIMIT 1")
-    fun findUnit(id: Int): Type
+    fun findType(id: Int): Type
 
     @Query("SELECT * FROM types WHERE name = :name")
     fun searchName(name: String): List<Type>
