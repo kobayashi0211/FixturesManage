@@ -9,16 +9,16 @@ interface FixtureDao {
     fun getAll(): List<Fixture>
 
     @Insert
-    fun insert(unit: Fixture)
+    fun insert(fixture: Fixture)
 
     @Update
-    fun update(unit: Fixture)
+    fun update(fixture: Fixture)
 
     @Delete
-    fun delete(unit: Fixture)
+    fun delete(fixture: Fixture)
 
     @Query("SELECT * FROM fixtures WHERE id = :id LIMIT 1")
-    fun findUnit(id: Int): Fixture
+    fun findFixture(id: Int): Fixture
 
     @Query("SELECT * FROM fixtures WHERE name = :name")
     fun searchName(name: String): List<Fixture>
