@@ -19,6 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="?attr/minTouchTargetSize"
                 android:orientation="horizontal">
 
                 <TextView
@@ -40,12 +41,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="?attr/minTouchTargetSize"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_type"
                     android:layout_width="81dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:labelFor="@id/editSpinnerType"
                     android:text="@string/fixture_type"
                     android:textAlignment="center" />
@@ -54,6 +57,7 @@
                     android:id="@+id/editSpinnerType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -61,12 +65,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="?attr/minTouchTargetSize"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_status"
                     android:layout_width="81dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:labelFor="@id/editSpinnerStatus"
                     android:text="@string/fixture_status"
                     android:textAlignment="center" />
@@ -75,7 +81,9 @@
                     android:id="@+id/editSpinnerStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
@@ -105,12 +113,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="?attr/minTouchTargetSize"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/label_unit"
                     android:layout_width="81dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
                     android:labelFor="@id/editSpinnerUnit"
                     android:text="@string/fixture_unit"
                     android:textAlignment="center" />
@@ -119,7 +130,9 @@
                     android:id="@+id/editSpinnerUnit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical" />
 
             </LinearLayout>
 
