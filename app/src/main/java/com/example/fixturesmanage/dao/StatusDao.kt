@@ -2,7 +2,6 @@ package com.example.fixturesmanage.dao
 
 import androidx.room.*
 import com.example.fixturesmanage.model.Status
-import com.example.fixturesmanage.model.Type
 
 @Dao
 interface StatusDao {
@@ -28,4 +27,7 @@ interface StatusDao {
         val row = searchName(name)
         return row.isNotEmpty()
     }
+
+    @Query("SELECT * FROM statuses WHERE name LIKE :name")
+    fun includeName(name: String): List<Status>
 }

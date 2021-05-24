@@ -27,4 +27,7 @@ interface FixtureDao {
         val row = searchName(name)
         return row.isNotEmpty()
     }
+
+    @Query("SELECT * FROM fixtures WHERE name LIKE :name")
+    fun includeName(name: String): List<Fixture>
 }

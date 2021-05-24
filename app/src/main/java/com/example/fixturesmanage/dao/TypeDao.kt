@@ -27,4 +27,7 @@ interface TypeDao {
         val row = searchName(name)
         return row.isNotEmpty()
     }
+
+    @Query("SELECT * FROM types WHERE name LIKE :name")
+    fun includeName(name: String): List<Type>
 }

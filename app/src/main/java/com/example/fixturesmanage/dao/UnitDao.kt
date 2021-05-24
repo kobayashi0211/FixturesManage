@@ -27,4 +27,7 @@ interface UnitDao {
         val row = searchName(name)
         return row.isNotEmpty()
     }
+
+    @Query("SELECT * FROM units WHERE name LIKE :name")
+    fun includeName(name: String): List<Unit>
 }
