@@ -13,6 +13,7 @@ import com.example.fixturesmanage.R
 import com.example.fixturesmanage.dao.StatusDao
 import com.example.fixturesmanage.database.FixturesManageDatabase
 import com.example.fixturesmanage.databinding.ShowStatusFragmentBinding
+import com.example.fixturesmanage.ui.unit.UnitShowFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 
 class StatusShowFragment : Fragment() {
@@ -31,6 +32,15 @@ class StatusShowFragment : Fragment() {
         val status = mStatusDao.findStatus(args.selectedId)
 
         binding.textViewName.text = status.name
+
+        // 編集がクリックされた時のイベントリスナー
+        binding.buttonEdit.setOnClickListener { view : View ->
+            // 表示中のモデルID
+            val id = args.selectedId
+            // 生成されたクラスに引数を渡して遷移
+            val action = StatusShowFragmentDirections.actionStatusShowFragmentToStatusEditFragment(id.toString().toInt())
+            view.findNavController().navigate(action)
+        }
 
         binding.buttonDelete.setOnClickListener { view : View ->
             AlertDialog.Builder(this.requireContext()) // FragmentではActivityを取得して生成
