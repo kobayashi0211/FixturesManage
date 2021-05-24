@@ -29,6 +29,7 @@
     <string name="edit_fixture">備品 編集</string>
     <string name="delete">削除</string>
     <string name="update">更新</string>
+    <string name="search">検索</string>
 
     <string name="unit_name">単位名</string>
     <string name="type_name">種別名</string>
