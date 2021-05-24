@@ -17,7 +17,6 @@
             android:id="@+id/action_nav_fixture_to_fixtureShowFragment"
             app:destination="@id/fixtureShowFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/nav_type"
         android:name="com.example.fixturesmanage.ui.type.TypeFragment"
@@ -30,7 +29,6 @@
             android:id="@+id/action_nav_type_to_typeShowFragment"
             app:destination="@id/typeShowFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/nav_status"
         android:name="com.example.fixturesmanage.ui.status.StatusFragment"
@@ -43,7 +41,6 @@
             android:id="@+id/action_nav_status_to_statusShowFragment"
             app:destination="@id/statusShowFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/nav_unit"
         android:name="com.example.fixturesmanage.ui.unit.UnitFragment"
@@ -56,6 +53,7 @@
             android:id="@+id/action_nav_unit_to_unitShowFragment"
             app:destination="@id/unitShowFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/unitCreateFragment"
         android:name="com.example.fixturesmanage.ui.unit.UnitCreateFragment"
@@ -65,7 +63,6 @@
             android:id="@+id/action_unitCreateFragment_to_nav_unit"
             app:destination="@id/nav_unit" />
     </fragment>
-
     <fragment
         android:id="@+id/typeCreateFragment"
         android:name="com.example.fixturesmanage.ui.type.TypeCreateFragment"
@@ -106,6 +103,9 @@
         <action
             android:id="@+id/action_unitShowFragment_to_nav_unit"
             app:destination="@id/nav_unit" />
+        <action
+            android:id="@+id/action_unitShowFragment_to_unitEditFragment"
+            app:destination="@id/unitEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/typeShowFragment"
@@ -118,6 +118,9 @@
         <action
             android:id="@+id/action_typeShowFragment_to_nav_type"
             app:destination="@id/nav_type" />
+        <action
+            android:id="@+id/action_typeShowFragment_to_typeEditFragment"
+            app:destination="@id/typeEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/statusShowFragment"
@@ -130,6 +133,9 @@
         <action
             android:id="@+id/action_statusShowFragment_to_nav_status"
             app:destination="@id/nav_status" />
+        <action
+            android:id="@+id/action_statusShowFragment_to_statusEditFragment"
+            app:destination="@id/statusEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/fixtureShowFragment"
@@ -142,5 +148,58 @@
         <action
             android:id="@+id/action_fixtureShowFragment_to_nav_fixture"
             app:destination="@id/nav_fixture" />
+        <action
+            android:id="@+id/action_fixtureShowFragment_to_fixtureEditFragment"
+            app:destination="@id/fixtureEditFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/unitEditFragment"
+        android:name="com.example.fixturesmanage.ui.unit.UnitEditFragment"
+        android:label="@string/edit_unit"
+        tools:layout="@layout/edit_unit_fragment">
+        <argument
+            android:name="selectedId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_unitEditFragment_to_unitShowFragment"
+            app:destination="@id/unitShowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statusEditFragment"
+        android:name="com.example.fixturesmanage.ui.status.StatusEditFragment"
+        android:label="@string/edit_status"
+        tools:layout="@layout/edit_status_fragment">
+        <argument
+            android:name="selectedId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_statusEditFragment_to_statusShowFragment"
+            app:destination="@id/statusShowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/typeEditFragment"
+        android:name="com.example.fixturesmanage.ui.type.TypeEditFragment"
+        android:label="@string/edit_type"
+        tools:layout="@layout/edit_type_fragment">
+        <argument
+            android:name="selectedId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_typeEditFragment_to_typeShowFragment"
+            app:destination="@id/typeShowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fixtureEditFragment"
+        android:name="com.example.fixturesmanage.ui.fixture.FixtureEditFragment"
+        android:label="@string/edit_fixture"
+        tools:layout="@layout/edit_fixture_fragment">
+        <argument
+            android:name="selectedId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_fixtureEditFragment_to_fixtureShowFragment"
+            app:destination="@id/fixtureShowFragment" />
     </fragment>
 </navigation>
