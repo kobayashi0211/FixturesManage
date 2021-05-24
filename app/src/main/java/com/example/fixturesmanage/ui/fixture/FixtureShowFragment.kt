@@ -46,6 +46,15 @@ class FixtureShowFragment : Fragment() {
         binding.textViewQuantity.text = fixture.quantity.toString()
         binding.textViewUnit.text = mUnitDao.findUnit(fixture.unit).name
 
+        // 編集がクリックされた時のイベントリスナー
+        binding.buttonEdit.setOnClickListener { view : View ->
+            // 表示中のモデルID
+            val id = args.selectedId
+            // 生成されたクラスに引数を渡して遷移
+            val action = FixtureShowFragmentDirections.actionFixtureShowFragmentToFixtureEditFragment(id.toString().toInt())
+            view.findNavController().navigate(action)
+        }
+
         binding.buttonDelete.setOnClickListener { view : View ->
             AlertDialog.Builder(this.requireContext()) // FragmentではActivityを取得して生成
                 .setTitle("削除確認")
