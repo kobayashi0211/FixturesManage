@@ -1,14 +1,19 @@
 package com.example.fixturesmanage.ui.unit
 
+import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.fixturesmanage.R
+import com.example.fixturesmanage.adapter.FixtureAdapter
 import com.example.fixturesmanage.adapter.UnitAdapter
 import com.example.fixturesmanage.dao.UnitDao
 import com.example.fixturesmanage.database.FixturesManageDatabase
@@ -23,6 +28,12 @@ class UnitFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        /* 開かれたタイミングでキーボードを閉じる */
+        val inputManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (container != null) {
+            inputManager.hideSoftInputFromWindow(container.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        }
+
         mUnitDao = FixturesManageDatabase.getInstance(this.requireContext()).unitDao()
         val binding = DataBindingUtil.inflate<FragmentUnitBinding>(inflater, R.layout.fragment_unit, container, false)
 
@@ -32,10 +43,10 @@ class UnitFragment : Fragment() {
         setHasOptionsMenu(true)
 
         // Adapterに渡す配列を作成します
-        val units = mUnitDao.getAll() //.map { u -> "${u.id}: ${u.name}" }
+        var units = mUnitDao.getAll() //.map { u -> "${u.id}: ${u.name}" }
         // 一覧の作成
         val listView = binding.unitList
-        val unitAdapter = UnitAdapter(requireContext(), R.layout.list_unit, units)
+        var unitAdapter = UnitAdapter(requireContext(), R.layout.list_unit, units)
         listView.adapter = unitAdapter
 
         // listViewの行がクリックされた時のイベントリスナー
@@ -45,6 +56,31 @@ class UnitFragment : Fragment() {
             // 生成されたクラスに引数を渡して遷移
             val action = UnitFragmentDirections.actionNavUnitToUnitShowFragment(id.toString().toInt())
             view.findNavController().navigate(action)
+        }
+
+        binding.editSearchName.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                listView.visibility = View.VISIBLE
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                listView.visibility = View.INVISIBLE
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                var searchText = binding.editSearchName.text
+                units = mUnitDao.includeName("%${searchText}%")
+                unitAdapter = UnitAdapter(requireContext(), R.layout.list_unit, units)
+                listView.adapter = unitAdapter
+            }
+        })
+        binding.buttonSearch.setOnClickListener { view : View ->
+            var searchText = binding.editSearchName.text
+            units = mUnitDao.includeName("%${searchText}%")
+            unitAdapter = UnitAdapter(requireContext(), R.layout.list_unit, units)
+            listView.adapter = unitAdapter
+
+            /* ボタンクリックのタイミングでキーボードを閉じる */
+            val inputManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         }
 
         return binding.root
