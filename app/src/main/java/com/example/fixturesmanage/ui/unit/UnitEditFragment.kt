@@ -45,12 +45,16 @@ class UnitEditFragment : Fragment() {
             inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 
             if(name.isNotBlank()){
-                val newUnit = mUnitDao.findUnit(args.selectedId)
-                newUnit.name = name
-                mUnitDao.update(newUnit)
-                Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
-                val action = UnitEditFragmentDirections.actionUnitEditFragmentToUnitShowFragment(args.selectedId)
-                view.findNavController().navigate(action)
+                if(mUnitDao.existName(name)){
+                    Snackbar.make(view, "${name}は登録済みです", Snackbar.LENGTH_SHORT).show();
+                }else{
+                    val newUnit = mUnitDao.findUnit(args.selectedId)
+                    newUnit.name = name
+                    mUnitDao.update(newUnit)
+                    Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
+                    val action = UnitEditFragmentDirections.actionUnitEditFragmentToUnitShowFragment(args.selectedId)
+                    view.findNavController().navigate(action)
+                }
             }else{
                 Snackbar.make(view, "「単位名」を入力してください", Snackbar.LENGTH_SHORT).show();
             }

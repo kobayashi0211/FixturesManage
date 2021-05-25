@@ -45,12 +45,16 @@ class StatusEditFragment : Fragment() {
             inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 
             if(name.isNotBlank()){
-                val newStatus = mStatusDao.findStatus(args.selectedId)
-                newStatus.name = name
-                mStatusDao.update(newStatus)
-                Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
-                val action = StatusEditFragmentDirections.actionStatusEditFragmentToStatusShowFragment(args.selectedId)
-                view.findNavController().navigate(action)
+                if(mStatusDao.existName(name)){
+                    Snackbar.make(view, "${name}は登録済みです", Snackbar.LENGTH_SHORT).show();
+                }else{
+                    val newStatus = mStatusDao.findStatus(args.selectedId)
+                    newStatus.name = name
+                    mStatusDao.update(newStatus)
+                    Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
+                    val action = StatusEditFragmentDirections.actionStatusEditFragmentToStatusShowFragment(args.selectedId)
+                    view.findNavController().navigate(action)
+                }
             }else{
                 Snackbar.make(view, "「状態名」を入力してください", Snackbar.LENGTH_SHORT).show();
             }

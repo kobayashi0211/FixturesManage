@@ -46,12 +46,16 @@ class TypeEditFragment : Fragment() {
             inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 
             if(name.isNotBlank()){
-                val newType = mTypeDao.findType(args.selectedId)
-                newType.name = name
-                mTypeDao.update(newType)
-                Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
-                val action = TypeEditFragmentDirections.actionTypeEditFragmentToTypeShowFragment(args.selectedId)
-                view.findNavController().navigate(action)
+                if(mTypeDao.existName(name)){
+                    Snackbar.make(view, "${name}は登録済みです", Snackbar.LENGTH_SHORT).show();
+                }else{
+                    val newType = mTypeDao.findType(args.selectedId)
+                    newType.name = name
+                    mTypeDao.update(newType)
+                    Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
+                    val action = TypeEditFragmentDirections.actionTypeEditFragmentToTypeShowFragment(args.selectedId)
+                    view.findNavController().navigate(action)
+                }
             }else{
                 Snackbar.make(view, "「種別名」を入力してください", Snackbar.LENGTH_SHORT).show();
             }

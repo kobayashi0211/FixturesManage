@@ -140,16 +140,20 @@ class FixtureEditFragment : Fragment() {
             inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 
             if(validForm(name, type, status, quantity, unit)){
-                val newFixture = mFixtureDao.findFixture(args.selectedId)
-                newFixture.name = name
-                newFixture.type = type
-                newFixture.status = status
-                newFixture.quantity = quantity
-                newFixture.unit = unit
-                mFixtureDao.update(newFixture)
-                Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
-                val action = FixtureEditFragmentDirections.actionFixtureEditFragmentToFixtureShowFragment(args.selectedId)
-                view.findNavController().navigate(action)
+                if(mFixtureDao.existName(name)){
+                    Snackbar.make(view, "${name}は登録済みです", Snackbar.LENGTH_SHORT).show();
+                }else{
+                    val newFixture = mFixtureDao.findFixture(args.selectedId)
+                    newFixture.name = name
+                    newFixture.type = type
+                    newFixture.status = status
+                    newFixture.quantity = quantity
+                    newFixture.unit = unit
+                    mFixtureDao.update(newFixture)
+                    Snackbar.make(view, "${name}を更新しました", Snackbar.LENGTH_SHORT).show();
+                    val action = FixtureEditFragmentDirections.actionFixtureEditFragmentToFixtureShowFragment(args.selectedId)
+                    view.findNavController().navigate(action)
+                }
             }else{
                 Snackbar.make(view, validMsg, Snackbar.LENGTH_SHORT).show();
             }
