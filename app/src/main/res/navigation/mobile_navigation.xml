@@ -164,7 +164,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_unitEditFragment_to_unitShowFragment"
-            app:destination="@id/unitShowFragment" />
+            app:destination="@id/unitShowFragment"
+            app:popUpTo="@+id/nav_unit"/>
     </fragment>
     <fragment
         android:id="@+id/statusEditFragment"
@@ -176,7 +177,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_statusEditFragment_to_statusShowFragment"
-            app:destination="@id/statusShowFragment" />
+            app:destination="@id/statusShowFragment"
+            app:popUpTo="@+id/nav_status"/>
     </fragment>
     <fragment
         android:id="@+id/typeEditFragment"
@@ -188,18 +190,20 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_typeEditFragment_to_typeShowFragment"
-            app:destination="@id/typeShowFragment" />
+            app:destination="@id/typeShowFragment"
+            app:popUpTo="@+id/nav_type"/>
     </fragment>
     <fragment
         android:id="@+id/fixtureEditFragment"
         android:name="com.example.fixturesmanage.ui.fixture.FixtureEditFragment"
         android:label="@string/edit_fixture"
-        tools:layout="@layout/edit_fixture_fragment">
+        tools:layout="@layout/edit_unit_fragment">
         <argument
             android:name="selectedId"
             app:argType="integer" />
         <action
             android:id="@+id/action_fixtureEditFragment_to_fixtureShowFragment"
-            app:destination="@id/fixtureShowFragment" />
+            app:destination="@id/fixtureShowFragment"
+            app:popUpTo="@+id/nav_fixture"/>
     </fragment>
 </navigation>
